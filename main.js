@@ -1,35 +1,44 @@
-const APIKEY = '53601542d09248f0b19132516242504';
-
+import getWeather from './src/weatherApiInteractions.js'
 
 const elem = document.querySelector('button');
 const div = document.querySelector('main');
 
 elem.addEventListener('click', updateWeather);
 
-const endPoints = {
-    'current': '/current.json',
-    'forecast': '/forecast.json'
-}
-
-async function getCityWeather(city, days=false) {
-    const url = `https://api.weatherapi.com/v1/${days ? endPoints['forecast'] : endPoints['current']}?key=${APIKEY}&q=${city}${days ? `&days=${days}` : ''}`;
-
-    const response = await fetch(url, {mode:'cors'});
-    const weather = await response.json();
-
-    console.log(weather)
-    return weather.current.condition.text
-}
 
 async function updateWeather() {
-    const city = 'london';
-    const days = 3
-    div.textContent = 'first'
+    try {
+        const city = 'london'; // fetch from input element
+        const days = false || 3; // fetch from input element
+    
+        const weather = await getWeather(city, days);
+        div.textContent = weather.current.condition.text;
 
-    const r = await getCityWeather(city, days);
-    div.textContent = r
+        console.log(fetchFromRequest(weather));
+        
+    } catch (error) {
+        div.textContent = error;
+    }
+    
+    function fetchFromRequest(weather) {
+        const result = {'forecast': []};
+        result['locationName'] = weather.location.name;
+        result['locationCountry'] = weather.location.country;
+    
+        result['currentCondition'] = weather.current.condition.text;
+        result['currentConditionIcon'] = weather.current.condition.icon;
+        result['currentTemp'] = weather.current.temp_c;
+        
+        weather.forecast.forecastday.forEach(day => {
+            const forecastedDay = {};
+            forecastedDay['forecastDate'] = day.date;
+            forecastedDay['forecastCondition'] = day.day.condition.text;
+            forecastedDay['forecastConditionIcon'] = day.day.condition.icon;
+            forecastedDay['forecastMaxTemp'] = day.day.maxtemp_c;
+            forecastedDay['forecastMinTemp'] = day.day.mintemp_c;
+            result['forecast'].push(forecastedDay);
+        })
+        return result
+    }
 
 }
-
-
-// getCityWeather('london', 'forecast', 3);
