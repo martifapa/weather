@@ -4,8 +4,156 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
 }
 
-h3 {
-    color: burlywood;
+body {
+    padding-top: 60px;
+    background-image: 
+        /* linear-gradient(
+            rgba(0, 0, 0, 0.45), 
+            rgba(0, 0, 0, 0.45)
+        ), */
+        url('../clouds.jpg');
+    background-position: top;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* CONTENT */
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.weather-app {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+}
+
+.app-header,
+.app-main {
+    flex: 1 1 100%;
+    display: flex;
+}
+
+/* app-header */
+.app-header {
+    justify-content: center;
+}
+
+.search-bar {
+    position: relative;
+}
+
+#search-btn {
+    position: absolute;
+    left: 0;
+    padding-left: 4px;
+    cursor: pointer;
+}
+
+#search {
+    padding: 0 26px;
+    border-radius: 50px;
+    border: none;
+    line-height: 1.6rem;
+    font-size: 1.1rem;
+}
+
+#search:focus,
+#search:active {
+    outline: none;
+    border: none;
+}
+
+/* app-main */
+.app-main {
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.app-main > * {
+    flex: 1 1 100%;
+    display: flex;
+    gap: 20px;
+}
+
+.app-main-title {
+    justify-content: center;
+    align-items: baseline;
+    font-weight: 500;
+}
+
+.city-name {
+    font-size: 1.7rem;
+}
+
+.country-name {
+    font-size: 1.4rem;
+    font-style: italic;
+}
+
+.current-weather {
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#current-condition-icon {
+    height: 3.8rem;
+}
+
+.current-temp {
+    font-size: 3rem;
+}
+
+.current-condition {
+    font-size: 1.2rem;
+}
+
+.current-weather .current-condition {
+    flex: 1 1 100%;
+    text-align: center;
+}
+
+.forecasted-weather {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.forecasted-day {
+    padding: 10px;
+    border-radius: 8px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 3px  white;
+}
+
+.forecasted-day {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2px;
+    max-width: calc((100vw / 3) - 10px);
+}
+
+.forecasted-day > * {
+    flex: 1 1 100%;
+    text-align: center;
+}
+
+.day-temp {
+    flex: auto;
+}
+
+.forecasted-condition-icon {
+    max-width: 2.5rem;
+    height: auto;
 }

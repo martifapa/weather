@@ -5,19 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weatheredia</title>
 
-    <link rel="stylesheet" href="./src/normalize.css">
+    
+    <link rel="stylesheet" href="./dist/normalize.css">
     <link rel="stylesheet" href="./dist/style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <script type="module" src="main.js"></script>
 </head>
 <body>
-    <header>
-        <div class="logo">logo</div>
-        <ul><li><a href="#">Docs</a></li>
-        <li><a href="#">Pricing</a></li>
-        <li><a href="#">Contact</a></li></ul>
-    </header>
-    <main></main>
-    <button>Update</button>
+    <main>
+        <div class="weather-app">
+            <div class="app-header">
+                <div class="search-bar">
+                    <i class="fa fa-car" id="search-btn"></i>
+                    <input type="text" name="search" id="search">
+                </div>
+            </div>
+            <div class="app-main">
+                <div class="app-main-title">
+                    <p class="city-name">Paris</p>
+                </div>
+                <div class="current-weather">
+                    <img src="//cdn.weatherapi.com/weather/64x64/day/116.png" id="current-condition-icon">
+                    <p class="current-temp">18º</p>
+                    <p class="current-condition">Partly cloudy</p>
+                </div>
+                <div class="forecasted-weather">
+                    
+                    <div class="forecasted-day">
+                        <p class="day-date">6-may</p>
+                        <img src="" class="forecasted-condition-icon">
+                        <p class="forecasted-condition">Partly cloudy</p>
+                        <p class="day-temp min-temp">5º</p>
+                        <p class="day-temp max-temp">17º</p>
+                    </div>
+                    <div class="forecasted-day">
+                        <p class="day-date">6-may</p>
+                        <img src="" class="forecasted-condition-icon">
+                        <p class="forecasted-condition">Partly cloudy</p>
+                        <p class="day-temp min-temp">5º</p>
+                        <p class="day-temp max-temp">17º</p>
+                    </div>
+                    <div class="forecasted-day">
+                        <p class="day-date">6-may</p>
+                        <img src="" class="forecasted-condition-icon">
+                        <p class="forecasted-condition">Partly cloudy</p>
+                        <p class="day-temp min-temp">5º</p>
+                        <p class="day-temp max-temp">17º</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 </body>
 </html>
