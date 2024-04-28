@@ -4,18 +4,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Montserrat", sans-serif;
+    /* font-family: "Montserrat", sans-serif; */
 }
 
 body {
     padding-top: 60px;
-    background-image: 
-        /* linear-gradient(
-            rgba(0, 0, 0, 0.45), 
-            rgba(0, 0, 0, 0.45)
-        ), */
-        url('../clouds.jpg');
+    background: lightblue;
     background-position: top;
+    transition: background-image .4s ease;
 }
 
 a {
@@ -34,7 +30,7 @@ main {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 25px;
+    gap: 30px;
 }
 
 .app-header,
@@ -54,9 +50,11 @@ main {
 
 #search-btn {
     position: absolute;
-    left: 0;
+    left: 4px;
+    top: 4px;
     padding-left: 4px;
     cursor: pointer;
+    color: black;
 }
 
 #search {
@@ -76,13 +74,12 @@ main {
 /* app-main */
 .app-main {
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 30px;
 }
 
 .app-main > * {
     flex: 1 1 100%;
     display: flex;
-    gap: 20px;
 }
 
 .app-main-title {
